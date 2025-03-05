@@ -1,0 +1,74 @@
+{% extends "base.html" %}
+{% block title %}Admin - My Portfolio{% endblock %}
+
+{% block content %}
+<h1>Admin Dashboard</h1>
+<hr>
+
+<!-- Form to Add Projects -->
+<div class="mb-4">
+  <h2>Add New Project</h2>
+  <form method="POST" action="{{ url_for('admin') }}">
+    {{ form.hidden_tag() }}
+
+    <div class="mb-3">
+      <label class="form-label">Project Title</label>
+      {{ form.title(class="form-control") }}
+      {% if form.title.errors %}
+        <div class="text-danger">{{ form.title.errors[0] }}</div>
+      {% endif %}
+    </div>
+
+    <div class="mb-3">
+      <label class="form-label">Description</label>
+      {{ form.description(class="form-control", rows="3") }}
+      {% if form.description.errors %}
+        <div class="text-danger">{{ form.description.errors[0] }}</div>
+      {% endif %}
+    </div>
+
+    <div class="mb-3">
+      <label class="form-label">GitHub URL</label>
+      {{ form.github_url(class="form-control") }}
+      {% if form.github_url.errors %}
+        <div class="text-danger">{{ form.github_url.errors[0] }}</div>
+      {% endif %}
+    </div>
+
+    <button type="submit" class="btn btn-primary">Add Project</button>
+  </form>
+</div>
+
+<!-- Existing Projects Table -->
+<h2>Existing Projects</h2>
+<table class="table">
+  <thead>
+    <tr>
+      <th>Title</th>
+      <th>Description</th>
+      <th>GitHub</th>
+      <th>Delete</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for project in projects %}
+    <tr>
+      <td>{{ project.title }}</td>
+      <td>{{ project.description }}</td>
+      <td>
+        {% if project.github_url %}
+          <a href="{{ project.github_url }}" target="_blank">Repo</a>
+        {% else %}
+          N/A
+        {% endif %}
+      </td>
+      <td>
+        <form method="POST" action="{{ url_for('delete_project', project_id=project.id) }}">
+          <button type="submit" class="btn btn-danger btn-sm">Delete</button>
+        </form>
+      </td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
+{% endblock %}

@@ -1,0 +1,83 @@
+/* --------------------------------
+   General Layout & Colors
+----------------------------------- */
+
+/* Light pastel purple background for the body */
+body {
+	background-color: #f3e8ff;  /* A soft purple-lilac */
+	color: #333;
+	margin: 0;
+	padding: 0;
+	font-family: Arial, sans-serif;
+  }
+  
+  /* Headings spacing */
+  h1, h2, h3 {
+	margin-top: 1.5rem;
+	margin-bottom: 1rem;
+  }
+  
+  /* Footer style */
+  footer {
+	margin-top: 2rem;
+	font-size: 0.875rem;
+	color: #666;
+  }
+  
+  /* --------------------------------
+	 Navbar
+  ----------------------------------- */
+  
+  /* Main purple color for navbar background */
+  .navbar-purple {
+	background-color: #6f42c1; 
+	/* You can try #7B1FA2 (deep purple) or #9C27B0 for alternative tones */
+  }
+  
+  /* --------------------------------
+	 Buttons & Links
+  ----------------------------------- */
+  
+  .btn-primary {
+	background-color: #7f4dcf;
+	border-color: #7340be;
+  }
+  .btn-primary:hover {
+	background-color: #6f42c1;
+	border-color: #6f42c1;
+  }
+  
+  a {
+	color: #6f42c1;
+	text-decoration: none;
+  }
+  a:hover {
+	color: #5c339d;
+	text-decoration: underline;
+  }
+  
+  /* --------------------------------
+	 Card & Section Styles
+  ----------------------------------- */
+  
+  .card {
+	box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+	border-radius: 5px;
+	border: none;
+  }
+  
+  .card-title {
+	color: #5c339d;
+	font-weight: bold;
+  }
+  
+  .card-text {
+	color: #333;
+  }
+  
+  /* (Optional) Additional styling for .container sections */
+  .container {
+	max-width: 960px;
+  }
+  
+  

@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+{% block title %}Projects - My Portfolio{% endblock %}
+
+{% block content %}
+<h1>My Projects</h1>
+<div class="row">
+  {% for project in projects %}
+  <div class="col-md-6 mb-3">
+    <div class="card">
+      <div class="card-body">
+        <h3 class="card-title">{{ project.title }}</h3>
+        <p class="card-text">{{ project.description }}</p>
+        {% if project.github_url %}
+        <a href="{{ project.github_url }}" target="_blank" class="btn btn-primary">
+          View on GitHub
+        </a>
+        {% endif %}
+      </div>
+    </div>
+  </div>
+  {% endfor %}
+</div>
+{% endblock %}
